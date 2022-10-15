@@ -432,6 +432,42 @@
                             },
                         ]
                     },
+					{
+                        name: "Increase 'All Factory Settings' Buffer",
+                        tooltip: "Enable this if the option below is not default",
+                        patches: [
+                            {offset: 0x78018E, off: [0x48, 0x01, 0x00, 0x00], on: [0x22, 0x61, 0x14, 0x00]},
+                            {offset: 0xA2C88A, off: [0x48, 0x01, 0x00, 0x00], on: [0x22, 0x61, 0x14, 0x00]},
+                        ]
+                    },
+					{
+						type: "union",
+						name: "Reroute 'All Factory Settings' Test Menu",
+						offset: 0x7801A5,
+						patches: [
+                            {
+                                name: "All factory settings",
+                                tooltip: "Default",
+                                patch: [0x17, 0x8C, 0x01, 0x00],
+                            },
+                            {
+                                name: "AFP View Scene",
+                                patch: [0x17, 0x30, 0xCF, 0xFF],
+                            },
+                            {
+                                name: "Qpro Viewer Scene",
+                                patch: [0x67, 0xC1, 0xCF, 0xFF],
+                            },
+                            {
+                                name: "Sound Viewer Scene",
+                                patch: [0x07, 0x33, 0xD0, 0xFF],
+                            },
+                            {
+                                name: "Customize View Scene",
+                                patch: [0x57, 0x55, 0xCF, 0xFF],
+                            },
+                        ]
+					},
                 ]),
             ]);
         });
