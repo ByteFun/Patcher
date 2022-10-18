@@ -339,6 +339,10 @@
 									patch : [0x77, 0x0B, 0xEE, 0xFF],
 								},
 								{
+									name : "Customize Viewer",
+									patch : [0x67, 0x30, 0xEE, 0xFF],
+								},
+								{
 									name : "Qpro Viewer",
 									patch : [0x97, 0x9C, 0xEE, 0xFF],
 								},
@@ -347,32 +351,16 @@
 									patch : [0x37, 0x0F, 0xEF, 0xFF],
 								},
 								{
-									name : "Test IC Card QC",
-									patch : [0x67, 0x68, 0xEF, 0xFF],
-								},
-							]
-						},
-						{
-							type : "union",
-							name : "Reroute 'I/O Check -> Camera Check -> 2D Code check' Test Menu",
-							offset : 0x474DD5,
-							patches : [
-								{
-									name : "Test IO Check Qr Check",
-									tooltip : "Default",
-									patch : [0x37, 0x4E, 0x01, 0x00],
-								},
-								{
-									name : "Customize Viewer",
-									patch : [0xC7, 0x2B, 0xEE, 0xFF],
+									name : "System Sound Viewer",
+									patch : [0xB7, 0x4C, 0xEF, 0xFF],
 								},
 								{
 									name : "Sound Ranking Viewer",
-									patch : [0x47, 0xC5, 0xEE, 0xFF],
+									patch : [0xE7, 0xC9, 0xEE, 0xFF],
 								},
 								{
-									name : "System Sound Viewer",
-									patch : [0x17, 0x48, 0xEF, 0xFF],
+									name : "Test IC Card QC",
+									patch : [0x67, 0x68, 0xEF, 0xFF],
 								},
 							]
 						},
