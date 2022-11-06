@@ -650,6 +650,14 @@
                         tooltip: "Ignore the in-game volume settings and use the maximum possible volume level. Especially helpful for TDJ which tends to be very quiet.",
                         patches: [{ offset: 0xC613DC, off: [0xFF, 0x94, 0x24, 0x00, 0x01, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90] }],
                     },
+					{
+						name: "Save Game Volume",
+						tooltip: "Saves the volume value set in the OS mixer.",
+						patches: [
+							{ offset: 0x22D39A, off: [0x0C], on: [0x04] },
+							{ offset: 0x22D40E, off: [0x0C], on: [0x04] },
+						],
+					},
                     {
                         name: "QWERTY Keyboard Layout for Song Search",
                         tooltip: "Changes the touch keyboard layout from alphabetical to QWERTY in song and artist search menu (TDJ only)",
