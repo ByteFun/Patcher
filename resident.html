@@ -651,7 +651,7 @@
                         patches: [{ offset: 0xC613DC, off: [0xFF, 0x94, 0x24, 0x00, 0x01, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90] }],
                     },
 					{
-						name: "Save Game Volume",
+						name: "Prevent Windows volume change on boot",
 						tooltip: "Saves the volume value set in the OS mixer.",
 						patches: [
 							{ offset: 0x22D39A, off: [0x0C], on: [0x04] },
@@ -825,6 +825,10 @@
                     {
                         name: "Lightning Mode Camera Crash Fix (for spicetools) / Force LDJ Software Video Decoder for All Boot Modes",
                         patches: [{ offset: 0x953D28, off: [0x0F, 0x85, 0x09, 0x01, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90] }],
+                    },
+					{
+                        name: "30 to 60 FPS on music select",
+                        patches: [{ offset: 0xBFB997, off: [0x1E], on: [0x3C] }],
                     },
                     {
                         name: "Force Custom Timing and Adapter Mode in LDJ (Experimental)",
