@@ -984,11 +984,11 @@
                         tooltip: "Prevents the CAMERA DEVICE ERROR message from popping up on boot",
                         patches: [{ offset: 0x871309, off: [0x84], on: [0x81] }],
                     },
-					{
-                        name: "Initialize game booster",
-                        tooltip: "Skip checking all sound data on Game Initialize.",
-                        patches: [{ offset: 0x870B9C, off: [0xE8, 0x9F, 0x71, 0x02], on: [0xE9, 0x58, 0x00, 0x00] }],
-                    },
+					//{
+                    //    name: "Initialize game booster",
+                    //    tooltip: "Skip checking all sound data on Game Initialize.",
+                    //    patches: [{ offset: 0x870B9C, off: [0xE8, 0x9F, 0x71, 0x02], on: [0xE9, 0x58, 0x00, 0x00] }],
+                    //},
                     {
                         name: "Force Max V-Discs",
                         tooltip: "Infinite leggendaria plays in pfree",
@@ -1010,6 +1010,14 @@
                         tooltip: "Ignore the in-game volume settings and use the maximum possible volume level. Especially helpful for TDJ which tends to be very quiet.",
                         patches: [{ offset: 0xC7518C, off: [0xFF, 0x94, 0x24, 0x00, 0x01, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90] }],
                     },
+					{
+						name: "Prevent Windows volume change on boot",
+						tooltip: "Saves the volume value set in the OS mixer.",
+						patches: [
+							{ offset: 0x236EAA, off: [0x0C], on: [0x04] },
+							{ offset: 0x236F1E, off: [0x0C], on: [0x04] },
+						],
+					},
                     {
                         name: "WASAPI Shared Mode (with 44100Hz)",
                         patches: [{ offset: 0x236B81, off: [0x01], on: [0x00] }],
