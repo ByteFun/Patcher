@@ -59,6 +59,44 @@ var createLabel = function(labelText, htmlFor, className) {
     return el;
 };
 
+class Group {
+	constructor(options) {
+		this.name = options.name;
+	}
+	
+	createUI(parent) {
+		var id = createID();
+		var group = createElementClass('div', 'group');
+        var label = createLabel(this.name, id);
+		group.appendChild(label);
+		parent.appendChild(group);
+		
+		// OLD
+		//var id = createID();
+		//var group = createElementClass('div', 'group');
+        //var label = createLabel('', id);
+        //label.innerHTML = '<b><u>' + this.name + '</u></b>';
+		//group.appendChild(label);
+		//parent.appendChild(group);
+	}
+	
+	updateUI(file) {
+		
+	}
+	
+	validatePatch(file) {
+	}
+	
+	applyPatch(file) {
+	}
+	
+	replaceAll(file, featureOn) {
+	}
+	
+	checkPatchBytes(file) {
+	}
+}
+
 // Each unique kind of patch should have createUI, validatePatch, applyPatch,
 // updateUI
 
@@ -70,7 +108,7 @@ class StandardPatch {
         this.danger = options.danger;
     }
 
-    createUI(parent) {
+    createUI(parent) {		
         var id = createID();
         var label = this.name;
         var patch = createElementClass('div', 'patch');
@@ -747,6 +785,9 @@ class Patcher {
                 if(mod.type === "dynamic") {
                     this.mods.push(new DynamicPatch(mod));
                 }
+				if(mod.type === "group") {
+					this.mods.push(new Group(mod));
+				}
             } else { // standard patch
                 this.mods.push(new StandardPatch(mod));
             }
