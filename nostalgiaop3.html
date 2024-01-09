@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <title>Nostalgia Op.2 DLL Modder</title>
+    <link rel='stylesheet' href='css/style.css'>
+    <script type='text/javascript' src='js/dllpatcher.js'></script>
+    <script type='text/javascript'>
+      window.addEventListener('load', function () {
+        new PatchContainer([
+			new Patcher('nostalgia.dll', "2022-08-03 (01)", [
+            {
+				name: 'Timer Freeze',
+				patches: [{offset: 0x309D83, off: [0x41, 0xFF, 0xC8], on: [0x90, 0x90, 0x90]}]	// Menu Timer Freeze
+            },
+            {
+				name: 'Shorter Monitor Check',
+				tooltip : "Recommended only if you have a stable framerate",
+				patches: [{offset: 0x21740A, off: [0x1E], on: [0x00]}]
+            },
+			{
+				name: 'Hide all bottom text"',
+				patches: [
+					{offset: 0x5D0A50, off: [0x46], on: [0x00]},	// FREE PLAY
+					{offset: 0x5D09B8, off: [0x45], on: [0x00]},	// EVENT MODE
+					{offset: 0x5D0AA8, off: [0x50], on: [0x00]},	// PASELI: %s + %s
+					{offset: 0x5D0A10, off: [0x50], on: [0x00]},	// PASELI: %s
+					{offset: 0x5D0A20, off: [0x43], on: [0x00]},	// CREDIT: %d   COIN: %d / %d
+					{offset: 0x5D0A40, off: [0x43], on: [0x00]},	// CREDIT: %d
+					{offset: 0x5D0C40, off: [0x50], on: [0x00]},	// PASELI: NOT AVAILABLE
+					{offset: 0x5D0A60, off: [0x45], on: [0x00]},	// EXTRA PASELI: %s
+					{offset: 0x5D0A78, off: [0x50], on: [0x00]},	// PASELI: NO ACCOUNT
+					{offset: 0x5D0A90, off: [0x45], on: [0x00]}		// EXTRA PASELI: %s
+				]
+            },
+        ]), // Patcher
+		new Patcher('nostalgia.dll', "2022-12-20", [
+			{
+				name: 'Timer Freeze',
+				patches: [{offset: 0x309D83, off: [0x41, 0xFF, 0xC8], on: [0x90, 0x90, 0x90]}]	// Menu Timer Freeze
+            },
+			{
+				name: 'Shorter Monitor Check',
+				tooltip : "Recommended only if you have a stable framerate",
+				patches: [{offset: 0x21740A, off: [0x1E], on: [0x00]}]
+            },
+			{
+				name: "Disable SubScreen in FullScreen mode",
+				patches: [{offset: 0x6CFF44, off: [0x01], on: [0x00]}]
+            },
+			{
+				name: 'Hide all bottom text"',
+				patches: [
+					{offset: 0x5DAC68, off: [0x46], on: [0x00]},	// FREE PLAY
+					{offset: 0x5DAE18, off: [0x45], on: [0x00]},	// EVENT MODE
+					{offset: 0x5DACC0, off: [0x50], on: [0x00]},	// PASELI: %s + %s
+					{offset: 0x5DAC28, off: [0x50], on: [0x00]},	// PASELI: %s
+					{offset: 0x5DAC38, off: [0x43], on: [0x00]},	// CREDIT: %d   COIN: %d / %d
+					{offset: 0x5DAC58, off: [0x43], on: [0x00]},	// CREDIT: %d
+					{offset: 0x5DACF0, off: [0x50], on: [0x00]},	// PASELI: NOT AVAILABLE
+					{offset: 0x5DAC78, off: [0x45], on: [0x00]},	// EXTRA PASELI: %s
+					{offset: 0x5DAC90, off: [0x50], on: [0x00]},	// PASELI: NO ACCOUNT
+					{offset: 0x5DACA8, off: [0x45], on: [0x00]}		// EXTRA PASELI: %s
+				]
+            },
+		]), // Patcher
+        ]);
+      });
+    </script>
+</head>
+<body>
+<h1>Nostalgia Op.2 DLL Modder</h1>
+</body>
+</html>
