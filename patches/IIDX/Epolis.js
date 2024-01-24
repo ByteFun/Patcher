@@ -830,6 +830,11 @@ window.addEventListener("load", function () {
 					//{ offset: 0xAFBD19, off: [0x01], on: [0x03] },
 				]
 			},
+			{
+				name: "AVX2 Fix",
+				tooltip: "Breaks video playback",
+				patches: [{ offset: 0x405EC0, off: [0x48], on: [0xC3] }],
+			}
 		])
 	]);				// PatchContainer
 });					// addEventListener
