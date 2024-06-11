@@ -676,6 +676,14 @@ window.addEventListener("load", function () {
 				tooltip: "Ignore the in-game volume settings and use the maximum possible volume level. Especially helpful for TDJ which tends to be very quiet.",
 				patches: [{ offset: 0x8C1AA5, off: [0xFF, 0x90, 0x98, 0x00, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90] }],
 			},
+			{
+				name: "Prevent Windows volume change on boot",
+				tooltip: "Saves the volume value set in the OS mixer.",
+				patches: [
+					{ offset: 0x466F07, off: [0x0C], on: [0x04] },
+					{ offset: 0x466F7E, off: [0x0C], on: [0x04] },
+				],
+			},
 			/*{
 				name: "QWERTY Keyboard Layout for Song Search",
 				tooltip: "Changes the touch keyboard layout from alphabetical to QWERTY in song and artist search menu (TDJ only)",
